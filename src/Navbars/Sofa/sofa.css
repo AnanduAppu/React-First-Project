@@ -1,0 +1,21 @@
+.fontfam{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Filteropt{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 5px;
+}
+
+.remain{
+    padding: 10px;
+    border: solid 1px black;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.sofatitle{
+    background-color: rgba(96, 91, 91, 0.626);
+    text-align: center;
+}
