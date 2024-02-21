@@ -32,29 +32,28 @@ function Footer() {
           <div className="row mt-3 bg-secondary">
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                <i className="fas fa-gem me-3"></i>Company name
+                <i className="fas fa-gem me-3"></i>Papperfry
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum
-                dolor sit amet, consectetur adipisicing elit.
+               It is a Demo website of Papperfry here i just focused on the react function rather than styling the component
               </p>
             </div>
 
             <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">
-                Products
+                Our Partners
               </h6>
               <p>
-                <a href="#!" className="text-reset">Angular</a>
+                <a href="#!" className="text-reset">Indigo Crafts</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">React</a>
+                <a href="#!" className="text-reset">Raymond playwood</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Vue</a>
+                <a href="#!" className="text-reset">WoodLine paints</a>
               </p>
               <p>
-                <a href="#!" className="text-reset">Laravel</a>
+                <a href="#!" className="text-reset">Spunic Marketer</a>
               </p>
             </div>
 
@@ -78,7 +77,7 @@ function Footer() {
 
             <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Contact</h6>
-              <p><i className="fas fa-home me-3"></i> New York, NY 10012, US</p>
+              <p><i className="fas fa-home me-3"></i> Malappuram,Manjei 10012, India</p>
               <p>
                 <i className="fas fa-envelope me-3"></i>
                 info@example.com
@@ -91,8 +90,8 @@ function Footer() {
       </section>
 
       <div className="text-center p-4" style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        © 2023 Copyright
+        
       </div>
     </footer>
   )

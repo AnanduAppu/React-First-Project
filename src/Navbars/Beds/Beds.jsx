@@ -12,6 +12,7 @@ function Beds() {
   const [data, setData] = useState([]);
 
 
+
   useEffect(() => {
     function filteritem(itemname) {
       const result = proData.filter((val) => {
@@ -21,7 +22,7 @@ function Beds() {
       
     }
 
-    filteritem('sofa');
+    filteritem('Bed');
   }, [proData]);
 
 

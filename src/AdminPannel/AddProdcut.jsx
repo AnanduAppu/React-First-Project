@@ -8,6 +8,7 @@ function AddProdcut() {
   const Navigate = useNavigate();
   const { proData, setProData } = useContext(Usercontex);
 
+
   const datadetails = {
     id: "",
     image: "",
@@ -73,12 +74,14 @@ function AddProdcut() {
       setEditData(datadetails);
     }
   };
+
+  var imageAlt ="its an image"
   return (
     <div>
       <nav className="menu">
         <div className="smartphone-menu-trigger" />
         <header className="avatar">
-          <img src={image} alt="no image" />
+          <img src={image} alt={imageAlt} />
           <button onClick={() => Navigate("/Admin")}>Anandu</button>
         </header>
         <ul className="ultag">
@@ -137,6 +140,7 @@ function AddProdcut() {
             </div>
             <div className="form-group my-3">
               <label>Product Type</label>
+              
               <input
                 type="text"
                 className="form-control"

@@ -9,6 +9,7 @@ function Thanku() {
  
     const navigate = useNavigate();
 
+  
     const BacktoHome = ()=>{
         setCartCount('')
         navigate("/")

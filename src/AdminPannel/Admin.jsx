@@ -4,12 +4,13 @@ import { Link, Outlet } from "react-router-dom";
 
 
 function Main() {
+  var imageAlt ="its an image"
   return (
 <div>
         <nav className="menu" >
           <div className="smartphone-menu-trigger" />
           <header className="avatar">
-            <img src={image} alt='no image' />
+            <img src={image} alt={imageAlt} />
             <h2 className="avatartitle">Anandu</h2>
           </header>
           <ul className="ultag">

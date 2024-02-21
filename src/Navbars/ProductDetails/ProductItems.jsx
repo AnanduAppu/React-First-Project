@@ -4,30 +4,26 @@ import { useState, useContext, useEffect } from "react";
 import Usercontex from "../../Contex/Createcontex";
 
 function ProductItems() {
-  const { search, setSearch, cart, SetCart, cartCount,proData, setCartCount } =
-    useContext(Usercontex);
+  const { search,  cart, SetCart,proData, setCartCount } = useContext(Usercontex);
   const [data, setData] = useState(proData);
 
   console.log(cart);
   
   useEffect(() => {
     setCartCount(cart.length);
-  }, [cart]);
+  }, [cart,setCartCount]);
 
   useEffect(() => {
+    function filteritem(itemname) {
+      const result = itemname.filter((val) => {
+        return search === "" ? val : val.name.toLowerCase().includes(search.toLowerCase());
+      });
+      setData(result);
+      console.log(search);
+    }
+  
     filteritem(proData);
-  }, [search]);
-
-  function filteritem(itemname) {
-    const result = itemname.filter((val) => {
-      return search === ""
-        ? val
-        : val.name.toLowerCase().includes(search.toLowerCase());
-    });
-    setData(result);
-    console.log(search);
-  }
-
+  }, [search, proData]);
   console.log(cart.length);
 
 
@@ -54,7 +50,7 @@ function ProductItems() {
         <div className="col-md-12">
           <div className="row">
             {data.map((value) => {
-              const { id, product, name, image, price } = value;
+              const { id, name, image, price } = value;
 
               return (
                 <>
@@ -63,7 +59,7 @@ function ProductItems() {
                       <img
                         className="card-img-top"
                         src={image}
-                        alt="Card image cap"
+                        alt={name}
                       />
                       <div className="card-body">
                         <h5 className="card-title">{name}</h5>

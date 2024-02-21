@@ -5,10 +5,12 @@ import { Button, Form, FormControl, InputGroup } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 function Adminlog() {
-    const{adminData,setAdminData}=useContext(Usercontex)
+    const{adminData}=useContext(Usercontex)
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
+
+    var imagealt= "its an image "
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -51,7 +53,7 @@ function Adminlog() {
                   <form>
                     <div className="d-flex align-items-center mb-3 pb-1">
                       <i className="fas fa-cubes fa-2x me-3" style={{ color: '#ff6219' }}></i>
-                      <span className="h1 fw-bold mb-0"><img src="https://ii1.pepperfry.com/assets/w38-pf-logo-desktop.svg"/></span>
+                      <span className="h1 fw-bold mb-0"><img src="https://ii1.pepperfry.com/assets/w38-pf-logo-desktop.svg" alt={imagealt}/></span>
                     </div>
                     <h5 className="fw-normal mb-3 pb-3" style={{ letterSpacing: '1px' }}>
                       Admin Reporting, please sign in

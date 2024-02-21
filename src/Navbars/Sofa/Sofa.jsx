@@ -10,6 +10,8 @@ function Sofa() {
   const [data, setData] = useState([]);
   const navigate = useNavigate()
 
+  
+
 // filterning name sofa items , and collect that items to data and that data maping in jsx
   useEffect(() => {
     function filteritem(itemname) {

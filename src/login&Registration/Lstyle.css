@@ -17,31 +17,33 @@ body {
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  padding-top: 50px;
 }
 
 .Logform {
+
   opacity: 0.80;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
-  background: #84d337;
-  margin: 20px 50px;
-  padding: 30px;
+  justify-content:flex-start ;
+  background: rgb(192, 192, 192);
   width: 320px;
-  height: 380px;
+  height: 400px;
   box-shadow: 0px 5px 15px 2px #84d337;
 }
 
 .Logheadline {
   color: #3C3718;
-  margin: 30px 0 50px 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 400%;
 }
 
 .inpusty {
   padding: 0 15px;
   width: -webkit-fill-available;
-  margin: 15px;
+  margin: 10px;
   height: 35px;
   border-radius: 20px;
   font-weight: bold;
@@ -56,7 +58,7 @@ body {
   border: 2px solid #3C3718;
 }
 
-.inputBtn {
+/* .inputBtn {
   padding: 0 15px;
   width: -webkit-fill-available;
   margin: 15px;
@@ -69,6 +71,14 @@ body {
   transition: all 500ms ease-out;
   animation: lights 4000ms infinite ease-in;
   border: 0;
+} */
+
+.inputBtn {
+  width: 90%;
+padding-left:50px;
+padding-right:50px;
+border-radius: 5px;
+margin-bottom: 15px;
 }
 
 .inputBtn:hover {
@@ -94,8 +104,9 @@ body {
 
 .create {
   color: #E6F7D1;
+ 
   text-decoration: none;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bolder;
   opacity: 0.6;
   transition: all 300ms ease-in-out;

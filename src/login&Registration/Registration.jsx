@@ -1,9 +1,7 @@
-import React from 'react'
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import "./Rstyle.css"
-import formimage from "./images/a.jpg"
-import { useState,useContext } from 'react';
-
+import formimage from "./images/a.jpg";
+import "./Rstyle.css";
 import Usercontex from '../Contex/Createcontex';
 
 
@@ -156,7 +154,7 @@ function Registration() {
               <i className="zmdi zmdi-lock"></i>
               <div className="error">{errors.confirmPassword}</div>
             </div>
-          <button type="submit"  >Register <i className="zmdi zmdi-arrow-right"></i></button>
+            <button type="submit"  >Register <i className="zmdi zmdi-arrow-right"></i></button>
           </form>
         </div>
       </div>

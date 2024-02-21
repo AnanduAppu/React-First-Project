@@ -1,6 +1,5 @@
 import "./navtop.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -13,8 +12,9 @@ import { Link,useNavigate } from 'react-router-dom';
 
 function TopNavbar() {
 
+
  const navigate = useNavigate();
-  const {search,setSearch,cartCount} = useContext(Usercontex);
+  const {setSearch,cartCount} = useContext(Usercontex);
   const [prodNav,setProdNav]= useState(false);
   const {log,setLog} = useContext(Usercontex);
   const [innerText, setInnerText] = useState('sign up');
@@ -33,6 +33,7 @@ console.log(cartCount);
     
   }, [log]);
 
+  var ImageAlt ="its a image"
 
   return (
     <>
@@ -43,14 +44,14 @@ console.log(cartCount);
       </div>
 
       <div className="logo">
-        <img src="https://ii1.pepperfry.com/assets/w38-pf-logo-desktop.svg"/>
+        <img src="https://ii1.pepperfry.com/assets/w38-pf-logo-desktop.svg" alt={ImageAlt}/>
       </div>
 
 
 
       <div className="Account" >
         <Link className="mx-2" to={log===""?"/login":"/"}> <span>hello {innerText} <AccountCircleIcon className="text-warning"/></span></Link>
-        <a className="text-secondary" style={{cursor:"pointer", display: log?"inline":"none"}} onClick={()=>setLog("")}>Logout</a>
+        <Link className="text-secondary" style={{cursor:"pointer", display: log?"inline":"none"}} onClick={()=>setLog("")}>Logout</Link>
         <span onClick={()=>navigate("/carts")} className="text-danger mx-4" >Add to Cart <ShoppingCartIcon className="text-success"/>({cartCount})</span>
       </div>
       

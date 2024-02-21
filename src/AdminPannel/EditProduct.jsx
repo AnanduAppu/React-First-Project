@@ -21,6 +21,7 @@ function EditProduct() {
     image: "",
     price: "",
   }
+  
   const [demiDetails,setDemiDetails]=useState(productKey)
  
   const imagedtails = "its an image"

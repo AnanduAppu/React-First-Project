@@ -8,6 +8,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 function Addcart() {
     const {cart,SetCart,totalPrice,log,setCartCount}= useContext(Usercontex);
       
+  
     const Navigate =  useNavigate ()
     const NavToHome =  useNavigate ()
     const NavToLog =  useNavigate ()
@@ -26,11 +27,15 @@ function Addcart() {
     }
     console.log(inline);
 
+
+    
+
     const calculateTotal = () => {
       const total = cart.reduce((total, product) => total + product.quantity * product.price, 0).toFixed(2);
       totalPrice(total)
       return total
     };
+
 
 
     const addToCart = (product) => {

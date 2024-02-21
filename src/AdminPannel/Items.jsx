@@ -14,6 +14,7 @@ function Items() {
   const [data,setData]=useState(proData)
   
 
+  
 
   function filteritem(itemname){
 
@@ -38,7 +39,7 @@ function Items() {
   const deleteItem = (e, val) => {
     e.preventDefault();
     const filData = proData.filter((ele) => {
-      return ele != val;
+      return ele !== val;
     });
 
     console.log(filData);

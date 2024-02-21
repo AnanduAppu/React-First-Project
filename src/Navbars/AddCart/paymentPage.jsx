@@ -9,7 +9,8 @@ function PaymentPage() {
   const [expiration, setExpiration] = useState('');
   const [cvv, setCvv] = useState('');
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
