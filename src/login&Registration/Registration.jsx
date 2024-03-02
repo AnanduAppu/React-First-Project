@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import formimage from "./images/a.jpg";
 import "./Rstyle.css";
 import Usercontex from '../Contex/Createcontex';
@@ -154,7 +154,9 @@ function Registration() {
               <i className="zmdi zmdi-lock"></i>
               <div className="error">{errors.confirmPassword}</div>
             </div>
-            <button type="submit"  >Register <i className="zmdi zmdi-arrow-right"></i></button>
+            <button type="submit"  style={{marginBottom:"20px" }}>Register <i className="zmdi zmdi-arrow-right "></i></button>
+
+            <p className='text-primary cursor-pointer' style={{marginLeft:"80px",cursor:"pointer"}} onClick={()=>Navigate('/login')} >Already have an account?</p>
           </form>
         </div>
       </div>
