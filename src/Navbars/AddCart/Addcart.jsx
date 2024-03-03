@@ -2,6 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import Usercontex from "../../Contex/Createcontex";
 import { useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import Footer from "../Footer";
 
 function Addcart() {
   const { cart, SetCart, totalPrice, log, setCartCount } =
@@ -13,9 +14,12 @@ function Addcart() {
 
   const [inline, setInline] = useState("none");
 
+  const [ value,setValue] = useState(cart.length)
   useEffect(() => {
     setCartCount(cart.length);
   }, [setCartCount, cart]);
+
+ 
 
   const clickBuy = () => {
     setInline("inline");
@@ -28,6 +32,7 @@ function Addcart() {
       .reduce((total, product) => total + product.quantity * product.price, 0)
       .toFixed(2);
     totalPrice(total);
+    
     return total;
   };
 
@@ -41,9 +46,11 @@ function Addcart() {
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       );
       SetCart(updatedCart);
+      setValue(value+1)
       console.log(updatedCart);
     } else {
       SetCart([...cart, { ...product, quantity: 1 }]);
+      setValue(value+1)
     }
   };
 
@@ -55,8 +62,10 @@ function Addcart() {
         item.id === product.id ? { ...item, quantity: item.quantity - 1 } : item
       );
       SetCart(updatedCart);
+      setValue(value-1)
     } else {
       SetCart(cart.filter((item) => item.id !== product.id));
+      setValue(value-1)
     }
   };
 
@@ -83,59 +92,11 @@ function Addcart() {
       <div style={{ textAlign: "center" }}>
         <h1 style={{ display: "inline-block", fontWeight: "bold" }}>Addcart</h1>
       </div>
-      {/* <div className="container mt-5">
-        <h1 className="text-info">Shopping Cart</h1>
-        <div className="row">
-          <div className="col-md-12">
-            <ul className="list-group">
-              {cart.map((item, index) => (
-                <li key={item.id} className="list-group-item">
-                  {item.name} - ₹{item.price} - Quantity: {item.quantity} --
-                  {
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      width="200px"
-                      height="200px"
-                    />
-                  }
-                  <button
-                    onClick={() => removeFromCart(item)}
-                    className="btn btn-warning float-right ml-2"
-                  >
-                    -
-                  </button>
-                  <button
-                    onClick={() => addToCart(item)}
-                    className="btn btn-success float-right"
-                  >
-                    +
-                  </button>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-3">
-              <strong className="text-dark">Total: ₹{calculateTotal()}</strong>
-              <button
-                className="btn btn-success mt-2 "
-                onClick={() =>
-                  log.length === 0
-                    ? clickBuy()
-                    : cart.length === 0
-                    ? alert("Add something to cart")
-                    : Navigate("/carts/payment")
-                }
-              >
-                Buy Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </div> */}
+
 
       <section
         className="h-100 h-custom"
-        style={{ backgroundColor: "#d2c9ff" }}
+        style={{ backgroundColor: "white" }}
       >
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -152,53 +113,45 @@ function Addcart() {
                           <h1 className="fw-bold mb-0 text-black">
                             Shopping Cart
                           </h1>
-                          <h6 className="mb-0 text-muted">3 items</h6>
                         </div>
 
                         {cart.map((item, index) => (
                           <>
                             <hr className="my-4" />
 
-                            <div key={index} className="row mb-4 d-flex justify-content-between align-items-center">
+                            <div
+                              key={index}
+                              className="row mb-4 d-flex justify-content-between align-items-center"
+                            >
                               <div className="col-md-2 col-lg-2 col-xl-2">
-                                <img
-                                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img5.webp"
-                                  className="img-fluid rounded-3"
-                                  alt="Cotton T-shirt"
-                                />
+                                <img src={item.image} alt={item.name} />
                               </div>
                               <div className="col-md-3 col-lg-3 col-xl-3">
-                                <h6 className="text-muted">Shirt</h6>
-                                <h6 className="text-black mb-0">
-                                {item.name}
-                                </h6>
+                                <h6 className="text-muted">{item.product}</h6>
+                                <h6 className="text-black mb-0">{item.name}</h6>
                               </div>
                               <div className="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                <button className="btn btn-link px-2">
-                                  <i className="fas fa-minus"></i>
+                                <button
+                                  onClick={() => removeFromCart(item)}
+                                  className="btn display-5 px-2 py-2 border border-secondary"
+                                >
+                                  -
                                 </button>
+                                <label className="display-6">
+                                  {item.quantity}
+                                </label>
 
-                                <input
-                                  id="form1"
-                                  min="0"
-                                  name="quantity"
-                                  value="1"
-                                  type="number"
-                                  className="form-control form-control-sm"
-                                />
-
-                                <button className="btn btn-link px-2">
-                                  <i className="fas fa-plus"></i>
+                                <button
+                                  onClick={() => addToCart(item)}
+                                  className="btn  display-5  px-2 py-2 border border-secondary"
+                                >
+                                  +
                                 </button>
                               </div>
                               <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                <h6 className="mb-0">€ 44.00</h6>
+                                <h6 className="mb-0">₹{item.price}</h6>
                               </div>
-                              <div className="col-md-1 col-lg-1 col-xl-1 text-end">
-                                <a href="#!" className="text-muted">
-                                  <i className="fas fa-times"></i>
-                                </a>
-                              </div>
+                              <div className="col-md-1 col-lg-1 col-xl-1 text-end"></div>
                             </div>
                           </>
                         ))}
@@ -208,7 +161,32 @@ function Addcart() {
                       <div className="p-5">
                         <h3 className="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                         <hr className="my-4" />
-                        {/* Add summary details here */}
+
+                        <div className="d-flex justify-content-between mb-4">
+                          <h5 className="text-uppercase">{value}</h5>
+                        </div>
+
+                        <hr className="my-4" />
+
+                        <div className="d-flex justify-content-between mb-5">
+                          <h5 className="text-uppercase">Total price</h5>
+                          <h5>₹{calculateTotal()}</h5>
+                        </div>
+
+                        <button
+                          type="button"
+                          className="btn btn-dark btn-block btn-lg"
+                          data-mdb-ripple-color="dark"
+                          onClick={() =>
+                            log.length === 0
+                              ? clickBuy()
+                              : cart.length === 0
+                              ? alert("Add something to cart")
+                              : Navigate("/carts/payment")
+                          }
+                        >
+                          Buy Now
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -218,6 +196,7 @@ function Addcart() {
           </div>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 }
