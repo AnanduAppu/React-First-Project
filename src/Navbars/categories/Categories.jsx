@@ -1,6 +1,9 @@
 import React from 'react'
 import "./Cate.css"
 import { useNavigate  } from 'react-router-dom';
+import imagewal from '../../assets/home/homeWal.webp'
+import sofaCate1 from "../../assets/home/sofaCate1.webp"
+import bedCate2 from "../../assets/home/bedCate2.webp"
 
 function Categories() {
     const navigate = useNavigate();
@@ -10,15 +13,15 @@ function Categories() {
   return (
     <>
     <div className='container imageCon'> 
-        <img src="https://ii1.pepperfry.com/assets/e5a07aa0-7467-4e31-8685-ed34a63af55f.jpg" alt={imageAlt}  height="290" width="1280"/>
+        <img src={imagewal} alt={imageAlt}  height="290" width="1280"/>
     </div>
     <div className="container">
         <h4 className='cateHead'>Shop By Categories</h4>
       <div className="row">
-        <div onClick={()=>navigate("/sofas")} className="col-2"><img src='https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_category_360_1.jpg' alt={imageAlt} height="224" width="204"/><br/>
+        <div onClick={()=>navigate("/sofas")} className="col-2"><img src={sofaCate1} alt={imageAlt} height="224" width="204"/><br/>
             <p className='itemName'>Sofas</p>
         </div>
-        <div onClick={()=>navigate("/beds")} className="col-2"><img src='https://ii1.pepperfry.com/media/wysiwyg/banners/Furniture_clp_category_360_26.jpg' alt={imageAlt}  height="224" width="204"/><br/>
+        <div onClick={()=>navigate("/beds")} className="col-2"><img src={bedCate2} alt={imageAlt}  height="224" width="204"/><br/>
             <p className='itemName'>Beds</p>
         </div>
       
